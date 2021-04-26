@@ -1,0 +1,43 @@
+﻿@model Gr.Models.Djt
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HouTaiPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Djt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.djts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.djts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.newid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.newid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.color)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

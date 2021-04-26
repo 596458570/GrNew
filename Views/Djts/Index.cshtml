@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Gr.Models.Djt>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HouTaiPage.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.djts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.newid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.djts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.newid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.color)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

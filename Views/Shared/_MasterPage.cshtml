@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="author" content="csy.596458570@qq.com">
+    <meta name="keywords" content="排行榜,神奇的网站,资源,毒鸡汤" />
+    <meta name="description" content="zy66资源融合网站" />
+    <title>排行榜,神奇的网站,资源,毒鸡汤</title>
+
+    <link rel="shortcut icon" href="~/Content/20210416104252689_easyicon_net_32.ico" />
+    <link rel="bookmark" href="~/Content/20210416104252689_easyicon_net_32.ico" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Home/Default/css/gerenstyle.css" rel="stylesheet" />
+
+
+    <link href="~/Content/Phb/ssk.css" rel="stylesheet" />
+
+    <link href="~/Content/Phb/font.min.css" rel="stylesheet" />
+    <link href="~/Content/Phb/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Phb/phb.css" rel="stylesheet" />
+    <link href="~/Content/Phb/bootstrap-grid.min.css" rel="stylesheet" />
+
+    @* 站长统计工具 *@
+    @*<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279845421&web_id=1279845421"></script>*@
+
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+
+
+<body>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        video {
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+            min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+            /*加滤镜*/
+            /*filter: blur(15px); //背景模糊设置 */
+            /*-webkit-filter: grayscale(100%);*/
+            /*filter:grayscale(100%); //背景灰度设置*/
+            z-index: -11
+        }
+
+        source {
+            min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+        }
+
+        p {
+            width: 100%;
+            text-align: center;
+            font-size: 40px;
+            color: white;
+        }
+
+
+        .botCenter {
+            width: 100%;
+            height: 53px;
+            line-height: 20px;
+            background-color:cornflowerblue;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            font-size: 14px;
+            color: dodgerblue;
+            text-align: center;
+        }
+    </style>
+
+    @* 先把视频去掉 *@
+    @*<video autoplay loop muted>
+            <source src="~/Content/Home/mp4/homemp4.mp4" type="video/mp4" />
+        </video>*@
+    <!-- 导航条 -->
+    <div class="head">
+        <div class="navbox">
+            <div class="sidenav">
+                <label><i></i>ZY66</label>
+            </div>
+            <!-- 侧边栏菜单 -->
+            @*<div class="sidenav">
+                    <label><i></i>ZY66</label>
+                    <ul class="side">
+                        <li>
+                            <a href="#"><i class="side_t icon1"></i>Kevin</a>
+                            <div class="side_main">
+                                <dl>
+                                    <dt><b>Kevin</b></dt>
+                                    <dd>
+                                        <a href="#">对生活充满热情</a>
+                                        <a href='#'>坚定走自已的路</a>
+                                        <a href='#'>注重每一个细节</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><i class="side_t icon2"></i>Kevin</a>
+                            <div class="side_main">
+                                <dl>
+                                    <dt><b>Kevin</b></dt>
+                                    <dd>
+                                        <a href="#">对生活充满热情</a>
+                                        <a href='#'>坚定走自已的路</a>
+                                        <a href='#'>注重每一个细节</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><i class="side_t icon3"></i>Kevin</a>
+                            <div class="side_main">
+                                <dl>
+                                    <dt><b>Kevin</b></dt>
+                                    <dd>
+                                        <a href="#">对生活充满热情</a>
+                                        <a href='#'>坚定走自已的路</a>
+                                        <a href='#'>注重每一个细节</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><i class="side_t icon4"></i>Kevin</a>
+                            <div class="side_main">
+                                <dl>
+                                    <dt><b>Kevin</b></dt>
+                                    <dd>
+                                        <a href="#">对生活充满热情</a>
+                                        <a href='#'>坚定走自已的路</a>
+                                        <a href='#'>注重每一个细节</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><i class="side_t icon5"></i>Kevin</a>
+                            <div class="side_main">
+                                <dl>
+                                    <dt><b>Kevin</b></dt>
+                                    <dd>
+                                        <a href="#">对生活充满热情</a>
+                                        <a href='#'>坚定走自已的路</a>
+                                        <a href='#'>注重每一个细节</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><i class="side_t icon6"></i>Kevin</a>
+                            <div class="side_main">
+                                <dl>
+                                    <dt><b>Kevin</b></dt>
+                                    <dd>
+                                        <a href="#">对生活充满热情</a>
+                                        <a href='#'>坚定走自已的路</a>
+                                        <a href='#'>注重每一个细节</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><i class="side_t icon7"></i>Kevin</a>
+                            <div class="side_main">
+                                <dl>
+                                    <dt><b>Kevin</b></dt>
+                                    <dd>
+                                        <a href="#">对生活充满热情</a>
+                                        <a href='#'>坚定走自已的路</a>
+                                        <a href='#'>注重每一个细节</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                    </ul>
+                </div>*@
+            <!-- 主菜单 -->
+            <div class="nav headrg">
+                <ul class="nav_pc">
+                    <li>
+                        <a class="f_a" href="/home/Default">首页</a>
+                        <div class="s_navbox">
+                            <div class="s_a">
+                                @*<a href="#">香车</a>
+                    <a href="#">美女</a>*@
+
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="f_a" href="/sqwz/index">神奇的网站</a>
+                        <div class="s_navbox">
+                            <div class="s_a"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="f_a" href="#">鸡汤</a>
+                        <div class="s_navbox">
+                            <div class="s_a">
+                                <a href="#"></a>
+                                <a href="#"></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="f_a" href="#">@Session["LoginName"]</a>
+                        <div class="s_navbox">
+                            <div class="s_a">
+                                <a href="#">@Session["LoginName"]</a>
+                                <a href="#">@Session["LoginName"]</a>
+                                <a href="#">@Session["LoginName"]</a>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="f_a" href="/home/lyb">留言</a>
+                        <div class="s_navbox">
+                            <div class="s_a">
+                                @*<a href="#">我的资料</a>
+                    <a href="#">查看积分积分</a>
+                    <a href="#">修改密码</a>*@
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="f_a" href="/phb/index">各种各样的排行榜</a>
+                        <div class="s_navbox">
+                            <div class="s_a">
+
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="f_a" href="http://wpa.qq.com/msgrd?v=3&uin=596458570&site=qq&menu=yes">哦豁</a>
+                        <div class="s_navbox">
+
+                            <div class="s_a">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="">
+        <iframe name=""
+                style="border:medium none;height:80px;width:100%"
+                src="/Home/djt">
+        </iframe>
+        @RenderBody()
+        @RenderSection("scripts", false)
+    </div>
+
+    <div class="botCenter">
+        <span id="span"></span><span>&nbsp;&nbsp;</span><a href="http://wpa.qq.com/msgrd?v=3&uin=596458570&site=qq&menu=yes" style="color:white">如有侵权请立即联系我</a><span>&nbsp;&nbsp;</span><a href="https://new.cnzz.com/v1/login.php?siteid=1279845421">统计工具</a><br />
+        <a href="http://icp.chinaz.com/info?q=zy66.site" style="color:white">Copyright © 《猴子吃香蕉》 版权所有&nbsp;</a>
+        <a href="http://beian.miit.gov.cn/" style="color:white">冀ICP备2021007437号</a>
+
+    </div>
+
+    <!--轮播部分-->
+    @*<div class="slider">
+            <div id="slideBox" class="slideBox">
+                <div class="hd">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <li><img src="img/slider_bg01.jpg" /></li>
+                        <li><img src="img/slider_bg02.jpg" /></li>
+                        <li><img src="img/slider_bg03.jpg" /></li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+
+
+    <script type="text/javascript" src="~/Content/Home/Default/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/Home/Default/js/jquery.SuperSlide.2.1.js"></script>
+    <script type="text/javascript" src='~/Content/Home/Default/js/gerenjs.js'></script>
+    <script>
+        function changeColor() {
+            var color = "#f00|#0f0|#00f|#880|#808|#088|yellow|green|blue|gray";
+            color = color.split("|");
+            document.getElementById("span").style.color = color[parseInt(Math.random() * color.length)];
+        }
+        setInterval("changeColor()", 200);
+    </script>
+
+
+
+    <script type="text/javascript">
+        //轮播
+        jQuery(".slideBox").slide({
+            mainCell: ".bd ul",
+            effect: "leftLoop",
+            vis: "auto",
+            autoPlay: true,
+            trigger: "mouseover"
+        });
+
+    </script>
+
+
+    <script>
+
+        //鼠标点击出现爱心特效
+
+        (function (window, document, undefined) {
+
+            var hearts = [];
+
+            window.requestAnimationFrame = (function () {
+
+                return window.requestAnimationFrame ||
+
+                    window.webkitRequestAnimationFrame ||
+
+                    window.mozRequestAnimationFrame ||
+
+                    window.oRequestAnimationFrame ||
+
+                    window.msRequestAnimationFrame ||
+
+                    function (callback) {
+
+                        setTimeout(callback, 1000 / 60);
+
+                    }
+
+            })();
+
+            init();
+
+            function init() {
+
+                css(".heart{width:10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+
+                attachEvent();
+
+                gameloop();
+
+            }
+
+            function gameloop() {
+
+                for (var i = 0; i < hearts.length; i++) {
+
+                    if (hearts[i].alpha <= 0) {
+
+                        document.body.removeChild(hearts[i].el);
+
+                        hearts.splice(i, 1);
+
+                        continue;
+
+                    }
+
+                    hearts[i].y--;
+
+                    hearts[i].scale += 0.004;
+
+                    hearts[i].alpha -= 0.013;
+
+                    hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+
+                }
+
+                requestAnimationFrame(gameloop);
+
+            }
+
+            function attachEvent() {
+
+                var old = typeof window.onclick === "function" && window.onclick;
+
+                window.onclick = function (event) {
+
+                    old && old();
+
+                    createHeart(event);
+
+                }
+
+            }
+
+            function createHeart(event) {
+
+                var d = document.createElement("div");
+
+                d.className = "heart";
+
+                hearts.push({
+
+                    el: d,
+
+                    x: event.clientX - 5,
+
+                    y: event.clientY - 5,
+
+                    scale: 1,
+
+                    alpha: 1,
+
+                    color: randomColor()
+
+                });
+
+                document.body.appendChild(d);
+
+            }
+
+            function css(css) {
+
+                var style = document.createElement("style");
+
+                style.type = "text/css";
+
+                try {
+
+                    style.appendChild(document.createTextNode(css));
+
+                } catch (ex) {
+
+                    style.styleSheet.cssText = css;
+
+                }
+
+                document.getElementsByTagName('head')[0].appendChild(style);
+
+            }
+
+            function randomColor() {
+
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+
+            }
+
+        })(window, document);
+
+    </script>
+    @* 禁用f12和右键 *@
+    @*<script>
+            window.onload = function () {
+                document.onkeydown = function () {
+                    var e = window.event || arguments[0];
+                    if (e.keyCode == 123) {
+                        return false;
+                    } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+                        return false;
+                    }
+                };
+                document.oncontextmenu = function () {
+                    return false;
+                }
+            }
+        </script>*@
+
+
+    <script type="text/javascript">
+        function runtime() {
+            // 初始时间，日/月/年 时:分:秒
+            X = new Date("04/01/2021 8:0:00");
+            Y = new Date();
+            T = (Y.getTime() - X.getTime());
+            M = 24 * 60 * 60 * 1000;
+            a = T / M;
+            A = Math.floor(a);
+            b = (a - A) * 24;
+            B = Math.floor(b);
+            c = (b - B) * 60;
+            C = Math.floor((b - B) * 60);
+            D = Math.floor((c - C) * 60);
+            //信息写入到DIV中
+            span.innerHTML = "本站勉强运行: " + A + "天" + B + "小时" + C + "分" + D + "秒"
+        }
+        setInterval(runtime, 1000);
+    </script>
+    @*<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279845421'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1279845421' type='text/javascript'%3E%3C/script%3E"));</script>*@
+    @*<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279845421'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1279845421%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>*@
+</body>
+
+</html>
+
+
+

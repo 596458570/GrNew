@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Lyb";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+@*<div style="margin-top:20px;margin-left:10%">
+    <span style="font-size:30px;color:darkslateblue">叮~&nbsp;</span> <span style="color:coral">丑小鸭能变天鹅不是因为它多努力，是因为它爸妈本来就是天鹅</span>
+</div>*@
+<div style="margin:0 auto;width:500px;margin-top:50px">
+    <form action="/Home/Lyb" method="post">
+        <div class="form-group">
+            <input class="form-control" name="name" type="text" placeholder="尊姓大名(非必填)" >
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="email" type="email" placeholder="邮箱(非必填)" >
+        </div>
+        <div class="form-group">
+            @*<input class="form-control" name="content" type="text" placeholder="请输入内容" required="required">*@
+
+            <textarea class="form-control" name="content" cols="50" rows="20" placeholder="说说你想表达的叭" required="required"></textarea>
+        </div>
+        <input style="margin:0 auto" type="submit" value="提交" class="button">
+        @*<button type="submit" class="btn btn-lg" style="cursor: not-allowed">注册</button>*@
+    </form>
+
+</div>
+

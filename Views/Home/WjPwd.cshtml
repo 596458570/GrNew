@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WjPwd</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
+    <link href="~/Content/Home/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Home/css/style_Login.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="border-0 shadow card--register" >
+        <div class="card-body">
+            <h2 class="card-title">找回密码</h2>
+            <!--<p class="card-text">第三方注册</p>-->
+            @*<p class="badge-wrap"><a class="badge"><i class="fab fa-facebook-f"></i></a><a class="badge"><i class="fab fa-google"></i></a><a class="badge"><i class="fab fa-twitter"></i></a><a class="badge"><i class="fab fa-github"></i></a></p>*@
+            <!--<p>或者使用您的电子邮箱进行注册</p>-->
+            <form action="/Home/WjPwd" method="post" target="the_iframe">
+                <div class="form-group">
+                    <input class="form-control" name="Account" type="email" placeholder="邮箱" required="required">
+                </div>
+                <button type="submit" class="btn">获取验证码</button><br />
+                <label>目前没有正式域名，该功能暂时未开放</label>
+            </form>
+            <form action="/Home/EditPwd" method="post" target="the_iframe">
+                <input class="form-control" name="Coed" type="text" placeholder="验证码" required="required">
+                <input class="form-control" name="Possword" type="password" placeholder="新密码" required="required">
+                <input class="form-control" name="QPossword" type="password" placeholder="确认新密码" required="required">
+                <button type="submit" class="btn btn-lg">确定重置</button>
+            </form>
+            <iframe id="is_iframe" name="the_iframe" style="display:none;"></iframe>
+        </div>
+        <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
+    </div>
+
+    <script src="~/Content/Home/js/index.js"></script>
+</body>
+</html>

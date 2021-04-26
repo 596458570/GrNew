@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_HouTaiPage.cshtml";
+}
+
+
+
+
+<form action="/Phbs/Upload" method="post" enctype="multipart/form-data">
+   <lable>url:</lable> <input type="text" name="url" value="" />
+   <lable>名称:</lable> <input type="text" name="name" value="" />
+   <lable>说明:</lable> <input type="text" name="title" value="" />
+   <lable>分类</lable> <input type="text" name="sort" value="" />
+   <lable></lable> <text>选择图像：</text><input id="file" type="file" name="img" />
+    <br />
+    <br />
+    <input id="Submit1" type="submit" value="上传" />
+</form>
+

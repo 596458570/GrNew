@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5b15d875f5a4b8195df1e4977282443" Name="Diagram1">
+        <EntityTypeShape EntityType="HRMSDBModel.Admin" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSDBModel.Attendance" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSDBModel.AuthEmp" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSDBModel.Authority" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSDBModel.Dept" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSDBModel.Emp" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSDBModel.EmpAtten" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSDBModel.Position" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="HRMSDBModel.FK__EmpAtten__Attend__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSDBModel.FK__AuthEmp__Authori__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSDBModel.FK__AuthEmp__EmpId__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSDBModel.FK__Emp__DeptId__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSDBModel.FK__Emp__PositionId__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSDBModel.FK__EmpAtten__EmpId__21B6055D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HRMSDBModel.AdminCoed" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="HRMSDBModel.FK_AdminCoed_Admin" />
+        <EntityTypeShape EntityType="HRMSDBModel.Djt" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="HRMSDBModel.Lyb" Width="1.5" PointX="8.375" PointY="6.75" />
+        <EntityTypeShape EntityType="HRMSDBModel.phb" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HRMSDBModel.Sqwz" Width="1.5" PointX="9.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

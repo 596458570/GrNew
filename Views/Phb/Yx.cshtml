@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Yx";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+@using Gr.Models;
+
+
+<div style="margin:0 auto;">
+    <div id="container">
+        <div class="search bar6">
+            <form action="/phb/index" method="post">
+                <input type="text" placeholder="请输入关键字" name="name">
+                <button type="submit"></button>
+            </form>
+        </div>
+    </div>
+    <div class="container cd">
+        <div class="row">
+            <div class="col"><a href="/phb/index"><i class="fa" style="color: #53727d"></i> 全部</a></div>
+            <div class="col"><a href="/phb/rs"><i class="fa" style="color: #bc763c"></i> 热搜榜</a></div>
+            <div class="col"><a href="/phb/ry"><i class="fa" style="color: #53727d"></i> 热议榜</a></div>
+            <div class="col"><a href="/phb/ys"><i class="fa" style="color: #0094c8"></i> 影视榜</a></div>
+            <div class="col"><a href="/phb/yy"><i class="fa" style="color: #bc763c"></i> 音乐榜</a></div>
+            <div class="col"><a href="/phb/sy"><i class="fa" style="color: #53727d"></i> 摄影榜</a></div>
+            <div class="col"><a href="/phb/sj"><i class="fa" style="color: #0094c8"></i> 设计榜</a></div>
+            <div class="col"><a href="/phb/cf"><i class="fa" style="color: #b88884"></i> 财富榜</a></div>
+            <div class="col"><a href="/phb/cp"><i class="fa" style="color: #bc763c"></i> 产品榜</a></div>
+            <div class="col"><a href="/phb/yx"  style="color: #f80;"><i class="fa" style="color: #53727d"></i> 游戏榜</a></div>
+            <div class="col"><a href="/phb/ds"><i class="fa" style="color: #0094c8"></i> 大数据</a></div>
+            <div class="col lastrow"><a href="/phb/qt"><i class="fa" style="color: #bc763c"></i> 其他榜</a></div>
+        </div>
+    </div>
+    <div>
+        <div class="container content">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6">
+                <div class="col pc" id="div1">
+                    <a href="" target="_blank" id="div1">
+                        Zy66
+                        <div class="slogo"><img src="~/Content/20210416104252689_easyicon_net_32.ico" /></div>
+                    </a>
+                </div>
+
+                @foreach (var b in Model as List<phb>)
+                {
+                    if (b.title == "v"|| b.title == "w")
+                    {
+                        <div class="col pc div1">
+                            <a href="@b.url" target="_blank" class='@b.title'>
+                                @b.name
+                                <div class="slogo"><img src="~/Content/Phb/img/@b.img" /></div>
+                            </a>
+                        </div>
+                    }
+
+
+                }
+
+            </div>
+        </div>
+    </div>
+
+    @section scripts{
+        <script>
+        $(function () {
+            $("#pageSize").val(@ViewBag.pageSize)
+        })
+        function page(pageIndex) {
+            let pageSize=$("#pageSize").val()
+            window.location.href = "/sqwz/index?pageIndex=" + pageIndex+"&pageSize="+pageSize
+        }
+        $("#go").click(function () {
+            let pageIndex = $("#txtPageIndex").val();
+            page(pageIndex)
+
+        })
+        </script>
+    }
+
+</div>
+<div style="width:90px;height:90px">
+
+</div>

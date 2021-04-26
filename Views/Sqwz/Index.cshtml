@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+@using Gr.Models;
+
+
+@*<div style="margin-top:20px;margin-left:10%">
+    <span style="font-size:30px;color:darkslateblue">叮~&nbsp;</span> <span style="color:coral"> 从来都不用化妆品，我保持年轻的秘诀就是，谎报年龄</span>
+</div>*@
+<div style="width:80%;margin:0 auto;margin-top:1%;">
+    <div id="container">
+        <div class="search bar6">
+            <form action="/sqwz/index" method="post">
+                <input type="text" placeholder="请输入关键字" name="name">
+                <button type="submit"></button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="container content">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6">
+                <div class="col pc" id="div1">
+                    <a href="" target="_blank" id="div1">
+                        Zy66
+                        <div class="slogo"><img src="~/Content/20210416104252689_easyicon_net_32.ico" /></div>
+                    </a>
+                </div>
+
+                @foreach (var b in Model as List<Sqwz>)
+                {
+                    <div class="col pc div1">
+                        <a href="@b.url" target="_blank" class='@b.color'>
+                            @b.name
+                            <div class="slogo">@b.descs</div>
+                        </a>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:50px">
+        @*<table class="table table-hover table-bordered ">
+                <thead class="bg bg-info">
+                    <tr>
+                        <th>网站名称</th>
+                        <th>描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var b in Model as List<Sqwz>)
+                    {
+                        <tr>
+                            <td><a href="@b.url" target="_blank">@b.name</a></td>
+                            <td>@b.descs</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>*@
+        @*<div>
+                <nav aria-label="Page navigation example" style="display:flex;justify-content:space-between;">
+
+                    <div style="margin-top:25px;" target="the_iframe">
+                        共 @ViewBag.totalRows 条数据，@ViewBag.totalPage 页
+                        每页显示
+                        <select id="pageSize" onchange="page()">
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                        条数据,
+                        前往第 <input type="number" id="txtPageIndex" name="name" value="@ViewBag.pageIndex" style="width:50px;" />页
+                        <button id="go" class="btn">GO</button>
+                    </div>
+                    <iframe id="is_iframe" name="the_iframe" style="display:none;"></iframe>
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="javascript:page(1)">首页</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:page(@(ViewBag.pageIndex-1))">上一页</a></li>
+                        <li class="page-item"><a class="page-link" href="#">@ViewBag.pageIndex</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:page(@(ViewBag.pageIndex+1))">下一页</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:page(@ViewBag.totalPage)">尾页</a></li>
+                    </ul>
+                </nav>
+            </div>*@
+    </div>
+    @section scripts{
+        <script>
+        $(function () {
+            $("#pageSize").val(@ViewBag.pageSize)
+        })
+        function page(pageIndex) {
+            let pageSize=$("#pageSize").val()
+            window.location.href = "/sqwz/index?pageIndex=" + pageIndex+"&pageSize="+pageSize
+        }
+        $("#go").click(function () {
+            let pageIndex = $("#txtPageIndex").val();
+            page(pageIndex)
+
+        })
+        </script>
+    }
+
+</div>
+<div style="width:50px;height:50px">
+
+</div>

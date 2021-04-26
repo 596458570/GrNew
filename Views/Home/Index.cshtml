@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta http-equiv="Refresh" content="10;URL=/home/login">
+    <link href="https://fonts.googleapis.com/css?family=Griffy&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Content/Home/css/style.css">
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" readonly="true" value="2" id="time">
+    <span> 服务器不太行，加载下资源。。。</span>
+    <div class="background"></div>
+    <div class="overlay">
+        <div class="trick">Welcome </div>
+        <div class="or">To</div>
+        <div class="treat">ZY66</div>
+    </div>
+
+    <script src='~/Content/Home/js/jquery.min.js'></script>
+    <script src="~/Content/Home/js/script.js"></script>
+    @* 十秒后自动跳转 *@
+    <script language="javascript">
+        var t =2;
+        var time = document.getElementById("time");
+        function fun() {
+            t--;
+            time.value = t;
+            if (t <= 0) {
+                location.href = "/home/default";
+                clearInterval(inter);
+            }
+        }
+        var inter = setInterval("fun()", 1000);
+    </script>
+</body>
+</html>
+
+
+
+

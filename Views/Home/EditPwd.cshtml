@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+@using Gr.Models;
+@{
+    var b = Model as Admin;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditPwd</title>
+</head>
+<body>
+    <div>
+            <form action="/home/editpwd" method="post">
+                <input type="hidden" name="Id" value="@b.Id" />
+                <input type="hidden" name="Id" value="@b.Account" />
+                <input type="submit" value="保存" />
+            </form>
+    </div>
+</body>
+</html>

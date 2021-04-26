@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+@using Gr.Models;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+
+    <div style="margin-top:20px;margin-left:10%">
+        <span style="font-size:30px;color:darkslateblue">叮~&nbsp;</span> 
+        <span style="color:coral">
+            @foreach (var b in Model as List<Djt>)
+            {
+               @b.djts
+            }
+        </span>
+    </div>
+</body>
+</html>

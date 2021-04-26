@@ -1,0 +1,84 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/HoutaiPage/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/HoutaiPage/font/iconfont.css">
+    <script type="text/javascript" src="~/Content/HoutaiPage/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/HoutaiPage/js/nav.js"></script>
+
+</head>
+<body>
+    @if ((string)Session["LoginName"] == "" || Session["LoginName"] == null)
+    {
+        <div style="display: none">
+            @RenderBody()
+        </div>
+        <input type="text" readonly="true" value="2" id="time">
+        <h1>哦豁</h1>
+        <h2>管理员才能进入哦！！！</h2>
+        <script src='~/Content/Home/js/jquery.min.js'></script>
+        <script src="~/Content/Home/js/script.js"></script>
+        @* 十秒后自动跳转 *@
+        <script language="javascript">
+            var t = 2;
+            var time = document.getElementById("time");
+            function fun() {
+                t--;
+                time.value = t;
+                if (t <= 0) {
+                    location.href = "/home/default";
+                    clearInterval(inter);
+                }
+            }
+            var inter = setInterval("fun()", 1000);
+        </script>
+
+    }
+    else
+    {
+
+
+        <div class="nav">
+            <div class="nav-top">
+                <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="~/Content/HoutaiPage/images/mini.png"></div>
+            </div>
+            <ul>
+                <li class="nav-item">
+                    <a href="javascript:;"><i class="my-icon nav-icon icon_1"></i><span>网站配置</span><i class="my-icon nav-more"></i></a>
+                    <ul>
+                        <li><a href="/sqwzs/index"><span>神奇的网站</span></a></li>
+                        <li><a href="javascript:;"><span>资源上传</span></a></li>
+                        <li><a href="javascript:;"><span>资源下载</span></a></li>
+                        <li><a href="javascript:;"><span>留言</span></a></li>
+                        <li><a href="/phbs/index"><span>排行榜</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:;"><i class="my-icon nav-icon icon_2"></i><span>文章管理</span><i class="my-icon nav-more"></i></a>
+                    <ul>
+                        <li><a href="/djts/index"><span>毒鸡汤</span></a></li>
+                        <li><a href="javascript:;"><span>站内公告</span></a></li>
+                        <li><a href="javascript:;"><span>登录日志</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:;"><i class="my-icon nav-icon icon_3"></i><span>Kevin</span><i class="my-icon nav-more"></i></a>
+                    <ul>
+                        <li><a href="javascript:;"><span>Kevin</span></a></li>
+                        <li><a href="javascript:;"><span>Kevin</span></a></li>
+                        <li><a href="javascript:;"><span>Kevin</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div style="text-align:center;margin:-650px 0; font:normal 14px/24px 'MicroSoft YaHei';margin-left:20%">
+            @RenderBody()
+        </div>
+    }
+</body>
+</html>

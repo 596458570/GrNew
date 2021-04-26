@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HRMSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Possword" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Coed" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="AdminCoed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Possword" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminId" Type="int" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="AttendanceId" />
+          </Key>
+          <Property Name="AttendanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttendanceName" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AuthEmp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="AuthorityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Authority">
+          <Key>
+            <PropertyRef Name="AuthorityId" />
+          </Key>
+          <Property Name="AuthorityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuthorityName" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dept">
+          <Key>
+            <PropertyRef Name="DeptId" />
+          </Key>
+          <Property Name="DeptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Djt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="djts" Type="nvarchar(max)" />
+          <Property Name="newid" Type="int" Nullable="false" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Emp">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Possword" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PositionId" Type="int" Nullable="false" />
+          <Property Name="DeptId" Type="int" Nullable="false" />
+          <Property Name="EntryDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpAtten">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="AttendanceId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Lyb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ip" Type="nvarchar" MaxLength="50" />
+          <Property Name="equipment" Type="nvarchar" MaxLength="50" />
+          <Property Name="content" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="phb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="url" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="img" Type="nvarchar(max)" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="sort" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionId" />
+          </Key>
+          <Property Name="PositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sqwz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="url" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="descs" Type="nvarchar(max)" />
+          <Property Name="cjdate" Type="datetime" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__AuthEmp__Authori__1CF15040">
+          <End Role="Authority" Type="Self.Authority" Multiplicity="1" />
+          <End Role="AuthEmp" Type="Self.AuthEmp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority">
+              <PropertyRef Name="AuthorityId" />
+            </Principal>
+            <Dependent Role="AuthEmp">
+              <PropertyRef Name="AuthorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AuthEmp__EmpId__1BFD2C07">
+          <End Role="Emp" Type="Self.Emp" Multiplicity="1" />
+          <End Role="AuthEmp" Type="Self.AuthEmp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="AuthEmp">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Emp__DeptId__173876EA">
+          <End Role="Dept" Type="Self.Dept" Multiplicity="1" />
+          <End Role="Emp" Type="Self.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Emp__PositionId__164452B1">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Emp" Type="Self.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionId" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpAtten__Attend__22AA2996">
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="1" />
+          <End Role="EmpAtten" Type="Self.EmpAtten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendance">
+              <PropertyRef Name="AttendanceId" />
+            </Principal>
+            <Dependent Role="EmpAtten">
+              <PropertyRef Name="AttendanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpAtten__EmpId__21B6055D">
+          <End Role="Emp" Type="Self.Emp" Multiplicity="1" />
+          <End Role="EmpAtten" Type="Self.EmpAtten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="EmpAtten">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminCoed_Admin">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="AdminCoed" Type="Self.AdminCoed" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdminCoed">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRMSDBModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminCoed" EntityType="Self.AdminCoed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuthEmp" EntityType="Self.AuthEmp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authority" EntityType="Self.Authority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dept" EntityType="Self.Dept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Djt" EntityType="Self.Djt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp" EntityType="Self.Emp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpAtten" EntityType="Self.EmpAtten" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lyb" EntityType="Self.Lyb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="phb" EntityType="Self.phb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sqwz" EntityType="Self.Sqwz" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AuthEmp__Authori__1CF15040" Association="Self.FK__AuthEmp__Authori__1CF15040">
+            <End Role="Authority" EntitySet="Authority" />
+            <End Role="AuthEmp" EntitySet="AuthEmp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AuthEmp__EmpId__1BFD2C07" Association="Self.FK__AuthEmp__EmpId__1BFD2C07">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="AuthEmp" EntitySet="AuthEmp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Emp__DeptId__173876EA" Association="Self.FK__Emp__DeptId__173876EA">
+            <End Role="Dept" EntitySet="Dept" />
+            <End Role="Emp" EntitySet="Emp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Emp__PositionId__164452B1" Association="Self.FK__Emp__PositionId__164452B1">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Emp" EntitySet="Emp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpAtten__Attend__22AA2996" Association="Self.FK__EmpAtten__Attend__22AA2996">
+            <End Role="Attendance" EntitySet="Attendance" />
+            <End Role="EmpAtten" EntitySet="EmpAtten" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpAtten__EmpId__21B6055D" Association="Self.FK__EmpAtten__EmpId__21B6055D">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="EmpAtten" EntitySet="EmpAtten" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminCoed_Admin" Association="Self.FK_AdminCoed_Admin">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="AdminCoed" EntitySet="AdminCoed" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRMSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Possword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Coed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="AdminCoed" Relationship="HRMSDBModel.FK_AdminCoed_Admin" FromRole="Admin" ToRole="AdminCoed" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="AttendanceId" />
+          </Key>
+          <Property Name="AttendanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttendanceName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="EmpAtten" Relationship="Self.FK__EmpAtten__Attend__22AA2996" FromRole="Attendance" ToRole="EmpAtten" />
+        </EntityType>
+        <EntityType Name="AuthEmp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="AuthorityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Authority" Relationship="Self.FK__AuthEmp__Authori__1CF15040" FromRole="AuthEmp" ToRole="Authority" />
+          <NavigationProperty Name="Emp" Relationship="Self.FK__AuthEmp__EmpId__1BFD2C07" FromRole="AuthEmp" ToRole="Emp" />
+        </EntityType>
+        <EntityType Name="Authority">
+          <Key>
+            <PropertyRef Name="AuthorityId" />
+          </Key>
+          <Property Name="AuthorityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorityName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AuthEmp" Relationship="Self.FK__AuthEmp__Authori__1CF15040" FromRole="Authority" ToRole="AuthEmp" />
+        </EntityType>
+        <EntityType Name="Dept">
+          <Key>
+            <PropertyRef Name="DeptId" />
+          </Key>
+          <Property Name="DeptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Emp" Relationship="Self.FK__Emp__DeptId__173876EA" FromRole="Dept" ToRole="Emp" />
+        </EntityType>
+        <EntityType Name="Emp">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Possword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PositionId" Type="Int32" Nullable="false" />
+          <Property Name="DeptId" Type="Int32" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="AuthEmp" Relationship="Self.FK__AuthEmp__EmpId__1BFD2C07" FromRole="Emp" ToRole="AuthEmp" />
+          <NavigationProperty Name="Dept" Relationship="Self.FK__Emp__DeptId__173876EA" FromRole="Emp" ToRole="Dept" />
+          <NavigationProperty Name="Position" Relationship="Self.FK__Emp__PositionId__164452B1" FromRole="Emp" ToRole="Position" />
+          <NavigationProperty Name="EmpAtten" Relationship="Self.FK__EmpAtten__EmpId__21B6055D" FromRole="Emp" ToRole="EmpAtten" />
+        </EntityType>
+        <EntityType Name="EmpAtten">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="AttendanceId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Attendance" Relationship="Self.FK__EmpAtten__Attend__22AA2996" FromRole="EmpAtten" ToRole="Attendance" />
+          <NavigationProperty Name="Emp" Relationship="Self.FK__EmpAtten__EmpId__21B6055D" FromRole="EmpAtten" ToRole="Emp" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionId" />
+          </Key>
+          <Property Name="PositionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Emp" Relationship="Self.FK__Emp__PositionId__164452B1" FromRole="Position" ToRole="Emp" />
+        </EntityType>
+        <Association Name="FK__EmpAtten__Attend__22AA2996">
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="1" />
+          <End Role="EmpAtten" Type="Self.EmpAtten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendance">
+              <PropertyRef Name="AttendanceId" />
+            </Principal>
+            <Dependent Role="EmpAtten">
+              <PropertyRef Name="AttendanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AuthEmp__Authori__1CF15040">
+          <End Role="Authority" Type="Self.Authority" Multiplicity="1" />
+          <End Role="AuthEmp" Type="Self.AuthEmp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority">
+              <PropertyRef Name="AuthorityId" />
+            </Principal>
+            <Dependent Role="AuthEmp">
+              <PropertyRef Name="AuthorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AuthEmp__EmpId__1BFD2C07">
+          <End Role="Emp" Type="Self.Emp" Multiplicity="1" />
+          <End Role="AuthEmp" Type="Self.AuthEmp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="AuthEmp">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Emp__DeptId__173876EA">
+          <End Role="Dept" Type="Self.Dept" Multiplicity="1" />
+          <End Role="Emp" Type="Self.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Emp__PositionId__164452B1">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Emp" Type="Self.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionId" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpAtten__EmpId__21B6055D">
+          <End Role="Emp" Type="Self.Emp" Multiplicity="1" />
+          <End Role="EmpAtten" Type="Self.EmpAtten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="EmpAtten">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRMSDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" />
+          <EntitySet Name="AuthEmp" EntityType="Self.AuthEmp" />
+          <EntitySet Name="Authority" EntityType="Self.Authority" />
+          <EntitySet Name="Dept" EntityType="Self.Dept" />
+          <EntitySet Name="Emp" EntityType="Self.Emp" />
+          <EntitySet Name="EmpAtten" EntityType="Self.EmpAtten" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <AssociationSet Name="FK__EmpAtten__Attend__22AA2996" Association="Self.FK__EmpAtten__Attend__22AA2996">
+            <End Role="Attendance" EntitySet="Attendance" />
+            <End Role="EmpAtten" EntitySet="EmpAtten" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AuthEmp__Authori__1CF15040" Association="Self.FK__AuthEmp__Authori__1CF15040">
+            <End Role="Authority" EntitySet="Authority" />
+            <End Role="AuthEmp" EntitySet="AuthEmp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AuthEmp__EmpId__1BFD2C07" Association="Self.FK__AuthEmp__EmpId__1BFD2C07">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="AuthEmp" EntitySet="AuthEmp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Emp__DeptId__173876EA" Association="Self.FK__Emp__DeptId__173876EA">
+            <End Role="Dept" EntitySet="Dept" />
+            <End Role="Emp" EntitySet="Emp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Emp__PositionId__164452B1" Association="Self.FK__Emp__PositionId__164452B1">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Emp" EntitySet="Emp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpAtten__EmpId__21B6055D" Association="Self.FK__EmpAtten__EmpId__21B6055D">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="EmpAtten" EntitySet="EmpAtten" />
+          </AssociationSet>
+          <EntitySet Name="AdminCoed" EntityType="HRMSDBModel.AdminCoed" />
+          <AssociationSet Name="FK_AdminCoed_Admin" Association="HRMSDBModel.FK_AdminCoed_Admin">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="AdminCoed" EntitySet="AdminCoed" />
+          </AssociationSet>
+          <EntitySet Name="Djt" EntityType="HRMSDBModel.Djt" />
+          <EntitySet Name="Lyb" EntityType="HRMSDBModel.Lyb" />
+          <EntitySet Name="phb" EntityType="HRMSDBModel.phb" />
+          <EntitySet Name="Sqwz" EntityType="HRMSDBModel.Sqwz" />
+        </EntityContainer>
+        <EntityType Name="AdminCoed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Possword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdminId" Type="Int32" />
+          <NavigationProperty Name="Admin" Relationship="HRMSDBModel.FK_AdminCoed_Admin" FromRole="AdminCoed" ToRole="Admin" />
+        </EntityType>
+        <Association Name="FK_AdminCoed_Admin">
+          <End Type="HRMSDBModel.Admin" Role="Admin" Multiplicity="1" />
+          <End Type="HRMSDBModel.AdminCoed" Role="AdminCoed" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdminCoed">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Djt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="djts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="newid" Type="Int32" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Lyb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="equipment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="phb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sqwz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cjdate" Type="DateTime" Precision="3" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRMSDBModelStoreContainer" CdmEntityContainer="HRMSDBEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="HRMSDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Coed" ColumnName="Coed" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Possword" ColumnName="Possword" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendance">
+            <EntityTypeMapping TypeName="HRMSDBModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
+                <ScalarProperty Name="AttendanceName" ColumnName="AttendanceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuthEmp">
+            <EntityTypeMapping TypeName="HRMSDBModel.AuthEmp">
+              <MappingFragment StoreEntitySet="AuthEmp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="AuthorityId" ColumnName="AuthorityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authority">
+            <EntityTypeMapping TypeName="HRMSDBModel.Authority">
+              <MappingFragment StoreEntitySet="Authority">
+                <ScalarProperty Name="AuthorityId" ColumnName="AuthorityId" />
+                <ScalarProperty Name="AuthorityName" ColumnName="AuthorityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dept">
+            <EntityTypeMapping TypeName="HRMSDBModel.Dept">
+              <MappingFragment StoreEntitySet="Dept">
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp">
+            <EntityTypeMapping TypeName="HRMSDBModel.Emp">
+              <MappingFragment StoreEntitySet="Emp">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Possword" ColumnName="Possword" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpAtten">
+            <EntityTypeMapping TypeName="HRMSDBModel.EmpAtten">
+              <MappingFragment StoreEntitySet="EmpAtten">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="HRMSDBModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminCoed">
+            <EntityTypeMapping TypeName="HRMSDBModel.AdminCoed">
+              <MappingFragment StoreEntitySet="AdminCoed">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="Possword" ColumnName="Possword" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Djt">
+            <EntityTypeMapping TypeName="HRMSDBModel.Djt">
+              <MappingFragment StoreEntitySet="Djt">
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="newid" ColumnName="newid" />
+                <ScalarProperty Name="djts" ColumnName="djts" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lyb">
+            <EntityTypeMapping TypeName="HRMSDBModel.Lyb">
+              <MappingFragment StoreEntitySet="Lyb">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="equipment" ColumnName="equipment" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phb">
+            <EntityTypeMapping TypeName="HRMSDBModel.phb">
+              <MappingFragment StoreEntitySet="phb">
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sqwz">
+            <EntityTypeMapping TypeName="HRMSDBModel.Sqwz">
+              <MappingFragment StoreEntitySet="Sqwz">
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="cjdate" ColumnName="cjdate" />
+                <ScalarProperty Name="descs" ColumnName="descs" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

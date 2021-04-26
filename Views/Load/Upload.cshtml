@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<h2>Upload</h2>
+
+@model System.Web.HttpContextBase
+@{
+    ViewBag.Title = "上传文件";
+}
+<div style="margin-left:20%;">
+    <h2>上传文件</h2>
+    <br />
+    <br />
+    @*new { enctype = "multipart/form-data" }必不可少，否则上传文件不会成功 *@
+    @using (Html.BeginForm("Upload", "UploadFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <text>选择上传文件：</text>
+        <input name="file" type="file" id="file" />
+        <br />
+        <br />
+        <input type="submit" name="Upload" value="上传" />
+    }
+</div>

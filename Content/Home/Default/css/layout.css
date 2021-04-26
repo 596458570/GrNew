@@ -1,0 +1,120 @@
+﻿@charset "utf-8";
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	width: 100%;
+	height: 1024px;
+	background-image: url(../img/bg1.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+/* 第一部分 主页的布局 */
+#userInfo{
+	width: 80%;
+	font-size: 2rem;
+	margin: 0px auto;
+	text-align: center;
+	position: relative;
+	top: 200px;
+}
+#txtName{
+	width: 450px;
+	height: 50px;
+	font-size: 1.5rem;
+}
+#userBir{
+	margin: 50px;
+}
+select{
+	height: 50px;
+	font-size: 1.5rem;
+	font-weight: bolder;
+	width: 120px;
+}
+#userBtn{
+	width: 300px;
+	height: 70px;
+	font-size: 2.5rem;
+	background: linear-gradient(skyblue,blue);
+	border-radius: 40px 40px;
+	outline: none;
+	color: #fff;
+}
+/* 第二部分 倒计时 */
+#nextBir{
+    width: 40%;
+    margin: 0px auto;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    height: 40%;
+    font-size: 2rem;
+    background-image: url(../img/centerImg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 20%;
+}
+#btn{
+    width: 80px;
+	height: 40px;
+	font-size: 1.5rem;
+	background-color: pink;
+	border-radius: 15px 15px;
+	outline: none;
+	color: #fff;
+}
+/* 第三部分 跳动的小心心 */
+.big{
+	width:400px;
+	position: relative;
+	margin: 200px auto;
+	animation: donghua 2s infinite;
+}
+.left{
+	width: 200px;
+	height: 300px;
+	border-radius: 50% 50% 70px 0px;
+	background-color: green;
+	background: linear-gradient(red,#000);
+	transform: rotate(-45deg);
+	position: relative;
+	left: 65px;
+	float: left;
+}
+.right{
+	width: 200px;
+	height: 300px;
+	border-radius: 50% 50% 0px 70px;
+	background-color: green;
+	background: linear-gradient(#000,red);
+	transform: rotate(45deg);
+	position: relative;
+	left: -65px;
+	float: left;
+	box-shadow: 20px 0px 25px 10px #ccc;
+}
+.text{
+	text-align: center;
+	
+	color: white;
+}
+.fonts{
+	position: relative;
+	
+}
+@keyframes donghua {
+    10% {
+        transform: scale(1.05);
+        text-shadow: 0 0 5px #fff;
+    }
+    20% {
+        transform: scale(1.1);
+        text-shadow: 0 0 10px #fff;
+    }
+    30% {
+        transform: scale(1.15);
+    }
+}
